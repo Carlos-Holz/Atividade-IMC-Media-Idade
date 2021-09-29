@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleMedia.css">
+    <title>Média</title>
+</head>
+
+<body>
+    <div class="cab">
+        <h1>Calculando a Média</h1>
+    </div>
+    <div class="container">
+        <div id="campo">
+            <label>Nome: </label>
+            <input type="text" id="nome" placeholder="Informe o nome do aluno">
+            <label>Nota 01: </label>
+            <input type="text" id="nota1" placeholder="Informe a primeira nota">
+            <label>Nota 02: </label>
+            <input type="text" id="nota2" placeholder="Informe a segunda nota">
+            <label>Nota 03: </label>
+            <input type="text" id="nota3" placeholder="Informe a terceira nota">
+            <label>Nota 04: </label>
+            <input type="text" id="nota4" placeholder="Informe a quarta nota">
+            <br>
+            <br>
+            <button onclick="media()">Calcular</button>
+        </div>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function media() {
+            let nome = document.querySelector("#nome");
+            let nota1 = document.querySelector("#nota1");
+            let nota2 = document.querySelector("#nota2");
+            let nota3 = document.querySelector("#nota3");
+            let nota4 = document.querySelector("#nota4");
+            let resultado = document.querySelector("#resultado");
+
+            let media = (Number.parseFloat(nota1.value) + Number.parseFloat(nota2.value) + Number.parseFloat(nota3
+                .value) + Number.parseFloat(nota4.value)) / 4;
+
+            if (media >= 7) {
+                resultado.innerHTML += `<p strong>${nome.value}, sua média é: ${media} você está aprovado!!</p>`
+            } else if (media >= 4.5) {
+                resultado.innerHTML += `<p strong>${nome.value}, sua média é: ${media} você está em exame!!</p>`
+            } else if (media < 4.5) {
+                resultado.innerHTML += `<p strong>${nome.value}, sua média é: ${media} você está reprovado!!</p>`
+            }
+        }
+    </script>
+</body>
+
+</html>

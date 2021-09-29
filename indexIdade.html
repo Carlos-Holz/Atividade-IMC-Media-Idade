@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleIdade.css">
+    <title>Idade</title>
+</head>
+
+<body>
+    <div class="cab">
+        <h1>Calculando o IMC</h1>
+    </div>
+    <div class="container">
+        <div id="campo">
+            <label>Nome: </label>
+            <input type="text" id="nome" placeholder="Informe o nome">
+            <label>Ano de nascimento: </label>
+            <input type="date" id="data">
+            <br>
+            <br>
+            <button onclick="calcularIdade()">Calcular</button>
+        </div>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function calcularIdade() {
+            let nome = document.querySelector("#nome");
+            let anoDeNascimento = document.querySelector("#data").value;
+            let anoAtual = new Date().getFullYear();
+            let idade = anoAtual - Number.parseFloat(anoDeNascimento);
+            let resultado = document.querySelector("#resultado");
+
+            if (idade < 12) {
+                resultado.innerHTML += `<p> ${nome.value}, você tem ${idade} anos de idade e ainda é uma criança!</p>`;
+            } else if (idade >= 12 && idade < 18) {
+                resultado.innerHTML += `<p> ${nome.value}, você tem ${idade} anos de idade e ainda é jovem!</p>`;
+            } else if (idade >= 18 && idade < 65) {
+                resultado.innerHTML += `<p> ${nome.value}, você tem ${idade} anos de idade e é um adulto!</p>`;
+            } else if (idade >= 65) {
+                resultado.innerHTML += `<p> ${nome.value}, você tem ${idade} anos de idade e já é um idoso!</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
